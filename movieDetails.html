@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Details</title>
+    <link rel="stylesheet" href="movieDetails.css">
+</head>
+<body>
+    <div id="movie-details">
+        <!-- Movie details will be displayed here -->
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            const movie = JSON.parse(localStorage.getItem('movieDetails'));
+
+            if (movie) {
+                document.getElementById('movie-details').innerHTML = `
+                    <div class="movie-container">
+                        <h1>${movie.Title}</h1>
+                        <div class="movie-image"> 
+                            <img src="${movie.Poster}" />
+                        </div>
+                        <div class="movie-info">
+                            <p><strong>Year:</strong> ${movie.Year}</p>
+                            <p><strong>Genre:</strong> ${movie.Genre}</p>
+                            <p class="imdb-rating">
+                                <span>${movie.imdbRating}</span>
+                                <span class="stars">⭐⭐⭐⭐⭐</span>
+                            </p>
+                            <p><strong>Plot:</strong> ${movie.Plot}</p>
+                            <div class="button-container">
+                            <button id="btn"> watch free </button>
+                            <button id ="btn1"> Downlod Now </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else {
+                document.getElementById('movie-details').innerHTML = "<p>No movie details available.</p>";
+            }
+        });
+    </script>
+</body>
+</html>

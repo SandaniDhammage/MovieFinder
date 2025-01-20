@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Finder</title>
+    <link rel ="stylesheet" href="index.css">
+    <script src="index.js"></script>
+</head>
+<body>
+    <div class="logo">
+        <img src="img/movieLogo.png" />
+    </div>
+    <div class="container">
+        <h3 id="topic">FIND YOUR FAVOURITE MOVIE</h3>
+        <input id="searchbox" placeholder="Enter Movie Name"/>
+        <button id="btn" onclick="search()">Search</button>
+        <p id="desc">Welcome to Movie Finder, your go-to destination for discovering and exploring movies! Whether you’re in the mood for the latest blockbuster or an old classic, our easy-to-use search tool lets you find movies by title, genre, or rating. Simply enter the movie name in the search box and get detailed information, including movie posters, ratings, and plot summaries. Stay updated with trending movies and explore a wide range of options at your fingertips. Start your movie journey with us today!</p>
+    </div>
+
+    <h3 class="sub">Trending Movies</h3>
+    <div class="container1">
+        <div class="movieBox" onclick="showMovieDetails('Squid Game', 'squidGame.jpg', 'Horror - 2021', '★★★★☆', 'https://www.omdbapi.com/?apikey=3651fa9f&t=Squid+Game')">
+            <img src="img/squidGame.jpg"/>
+            <p><span>Squid Game</span><br> Horror - 2021</p>
+            <div class="ratings">★★★★☆</div>
+        </div>
+        <div class="movieBox" onclick="showMovieDetails('Deadpool', 'Deadpool.png', 'Comedy/Action - 2016', '★★★★☆', 'https://www.omdbapi.com/?apikey=3651fa9f&t=Deadpool')">
+            <img src="img/Deadpool.png"/>
+            <p><span>Deadpool</span><br> Comedy/Action - 2016</p>
+            <div class="ratings">★★★★☆</div>
+        </div>
+
+        <div class="movieBox" onclick="showMovieDetails('Spaceman', 'spaceman.jpg', 'Science fiction - 2024', '★★★★☆', 'https://www.omdbapi.com/?apikey=3651fa9f&t=Spaceman')">
+            <img src="img/spaceman.jpg"/>
+            <p><span>Spaceman</span><br> Science fiction - 2024</p>
+            <div class="ratings">★★★★☆</div>
+        </div>
+
+        <div class="movieBox" onclick="showMovieDetails('Bad Boys', 'bad boys.jpg', 'Comedy/Action - 1995', '★★★★☆', 'https://www.omdbapi.com/?apikey=3651fa9f&t=Bad+Boys')">
+            <img src="img/bad boys.jpg"/>
+            <p><span>Bad Boys</span><br> Comedy/Action - 1995</p>
+            <div class="ratings">★★★★☆</div>
+        </div>
+
+        <div class="movieBox" onclick="showMovieDetails('Abigel', 'abigel.jpg', 'Horror/Comedy - 2024', '★★★★☆', 'https://www.omdbapi.com/?apikey=3651fa9f&t=Abigel')">
+            <img src="img/abigel.jpg"/>
+            <p><span>Abigel</span><br> Horror/Comedy - 2024</p>
+            <div class="ratings">★★★★☆</div>
+        </div>
+
+        <div class="movieBox" onclick="showMovieDetails('Damsel', 'damsel.jpg', 'Fantasy - 2024', '★★★★☆', 'https://www.omdbapi.com/?apikey=3651fa9f&t=Damsel')">
+            <img src="img/damsel.jpg"/>
+            <p><span>Damsel</span><br> Fantasy - 2024</p>
+            <div class="ratings">★★★★☆</div>
+        </div>
+    </div>
+
+    <script>
+      
+        function showMovieDetails(title, image, genre, rating, apiUrl) {
+            
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.Response === "True") {
+                       
+                        localStorage.setItem('movieDetails', JSON.stringify(data));
+
+                       
+                        window.location.href = 'movieDetails.html'; 
+                    } else {
+                        alert("Movie not found!");
+                    }
+                })
+                .catch(error => console.error("Error fetching movie details:", error));
+        }
+    </script>
+</body>
+</html>

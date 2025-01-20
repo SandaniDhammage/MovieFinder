@@ -1,0 +1,229 @@
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Verdana', Geneva, Tahoma, sans-serif;
+}
+
+body {
+    background-image: url("img/back2.jpg");
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    position: relative;
+    
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: -1; 
+}
+
+
+.logo {
+    display: flex;
+    justify-content: flex-start;
+    width: 80%;
+    margin: 10px;
+    height: 60px;
+    object-fit: cover;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+#searchbox {
+    display: block;
+    margin: 0;
+    font-size: 14px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: gray;
+    background-color: aliceblue;
+    border-radius: 20px;
+    padding: 12px 20px;
+    width: 320px;
+    outline: none;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+#searchbox:focus {
+    border-color: orange;
+    outline: none;
+}
+
+#btn {
+    display: block;
+    margin: 0;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: aliceblue;
+    background-color: orange;
+    border-radius: 30px;
+    padding: 12px 24px;
+    width: 150px;
+    cursor: pointer;
+    outline: none;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+#btn:focus {
+    border-color: rgb(33, 220, 124);
+    outline: none;
+}
+
+.container1 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    width: 90%;
+    margin: 30px auto;
+}
+
+
+@keyframes swing {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(10deg);
+    }
+    50% {
+        transform: rotate(-10deg);
+    }
+    75% {
+        transform: rotate(5deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+
+.movieBox {
+    width: 200px;
+    height: 300px;
+    border: none;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
+    flex-shrink: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    animation: swing 7s ease-in-out infinite;
+}
+
+.movieBox:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+    animation: swing 1.5s ease-in-out infinite; 
+}
+
+.movieBox img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+.movieBox p span {
+    font-size: medium;
+    margin: 5px 0;
+    color: aliceblue;
+}
+
+.movieBox p {
+    font-size: 12px;
+    margin: 5px 0;
+    color: aliceblue;
+}
+
+.ratings {
+    font-size: 16px;
+    color: gold; 
+    letter-spacing: 2px;
+}
+
+#topic {
+    text-align: center;
+    color: aliceblue;
+    width: 100%;
+    margin-left: -10px;
+    font-size: 30px;
+}
+
+#desc {
+    margin: 20px auto;
+    width: 80%;
+    text-align: justify;
+    font-size: 14px;
+    line-height: 1.6;
+    color: aliceblue;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.sub {
+    color: aliceblue;
+    text-align: left;
+    margin: 20px auto;
+    margin-left: 170px;
+}
+
+@media (max-width: 480px) {
+    .container {
+        gap: 8px;  
+    }
+
+    #searchbox {
+        font-size: 10px;
+        padding: 8px;
+    }
+
+    #btn, #btn1 {
+        font-size: 12px;  
+        padding: 8px;     
+    }
+
+    .movieBox {
+        width: 130px;  
+        height: 220px; 
+        margin-bottom: 10px;  
+    }
+
+    .movieBox img {
+        height: 160px; 
+    }
+
+    h1 {
+        font-size: 1.5em;
+        text-align: left; 
+    }
+
+    
+    .movie-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; 
+    }
+}
