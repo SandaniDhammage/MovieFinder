@@ -16,7 +16,7 @@ function search() {
             localStorage.setItem('movieDetails', JSON.stringify(response));
             
          
-            window.location.href = 'movieDetails.html'; 
+            window.location.href = './movieDetails.html';; 
         } else {
             console.log("No movies found");
             alert("Movie not found!");
